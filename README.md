@@ -20,21 +20,35 @@ HMC5883L magnetometer
 FlySky iBUS receiver
 
 PWM ESC output
+
 PID-based stabilization
+
 Custom Quad-X mixer
+
 Successfully tested in flight
-Hardware
-Component	Details
+
+Hardware Component	Details
+
 MCU	ESP32
-IMU	MPU6500
+
+IMU	MPU6050
+
 Barometer	BMP280
+
 Magnetometer	HMC5883L
+
 Receiver	FlySky iBUS
+
 ESC protocol	PWM
+
 Motors	A2212 1400KV
+
 Battery	3S LiPo
+
 Frame	F450
+
 Propellers	8×4.5
+
 Custom PCB
 
 
