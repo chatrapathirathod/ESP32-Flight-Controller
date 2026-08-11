@@ -1,0 +1,102 @@
+#include <Wire.h>
+#include <MPU6050_tockn.h>
+
+MPU6050 mpu6050(Wire);
+
+// ================= RECEIVER =================
+
+volatile uint32_t riseTime1 = 0;
+volatile uint32_t riseTime2 = 0;
+volatile uint32_t riseTime3 = 0;
+volatile uint32_t riseTime4 = 0;
+
+volatile int ch1 = 1500;
+volatile int ch2 = 1500;
+volatile int ch3 = 1000;
+volatile int ch4 = 1500;
+
+const int CH1_PIN = 34;
+const int CH2_PIN = 35;
+const int CH3_PIN = 32;
+const int CH4_PIN = 33;
+
+void isr_ch1() {
+  if (digitalRead(CH1_PIN))
+    riseTime1 = micros();
+  else
+    ch1 = micros() - riseTime1;
+}
+
+void isr_ch2() {
+  if (digitalRead(CH2_PIN))
+    riseTime2 = micros();
+  else
+    ch2 = micros() - riseTime2;
+}
+
+void isr_ch3() {
+  if (digitalRead(CH3_PIN))
+    riseTime3 = micros();
+  else
+    ch3 = micros() - riseTime3;
+}
+
+void isr_ch4() {
+  if (digitalRead(CH4_PIN))
+    riseTime4 = micros();
+  else
+    ch4 = micros() - riseTime4;
+}
+
+void setup() {
+
+  Serial.begin(115200);
+
+  // Receiver Inputs
+  pinMode(CH1_PIN, INPUT);
+  pinMode(CH2_PIN, INPUT);
+  pinMode(CH3_PIN, INPUT);
+  pinMode(CH4_PIN, INPUT);
+
+  attachInterrupt(digitalPinToInterrupt(CH1_PIN), isr_ch1, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(CH2_PIN), isr_ch2, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(CH3_PIN), isr_ch3, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(CH4_PIN), isr_ch4, CHANGE);
+
+  // MPU6050
+  Wire.begin(21, 22);
+
+  mpu6050.begin();
+
+  Serial.println("Keep board still...");
+  delay(2000);
+
+  mpu6050.calcGyroOffsets(true);
+
+  Serial.println("Receiver + MPU Test Started");
+}
+
+void loop() {
+
+  mpu6050.update();
+
+  Serial.print("CH1=");
+  Serial.print(ch1);
+
+  Serial.print(" CH2=");
+  Serial.print(ch2);
+
+  Serial.print(" CH3=");
+  Serial.print(ch3);
+
+  Serial.print(" CH4=");
+  Serial.print(ch4);
+
+  Serial.print(" Roll=");
+  Serial.print(mpu6050.getAngleX(), 2);
+
+  Serial.print(" Pitch=");
+  Serial.println(mpu6050.getAngleY(), 2);
+
+  delay(100);
+}

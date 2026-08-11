@@ -1,0 +1,35 @@
+#include <ESP32Servo.h>
+
+Servo motor1;
+
+void setup() {
+  Serial.begin(115200);
+
+  motor1.attach(25, 1000, 2000); // MOT1 = GPIO25
+
+  Serial.println("ESC Arming...");
+
+  motor1.writeMicroseconds(1000);
+  delay(5000);
+
+  Serial.println("Motor Test Starting");
+}
+
+void loop() {
+
+  motor1.writeMicroseconds(1100);
+  Serial.println("1100 us");
+  delay(5000);
+
+  motor1.writeMicroseconds(1200);
+  Serial.println("1200 us");
+  delay(5000);
+
+  motor1.writeMicroseconds(1300);
+  Serial.println("1300 us");
+  delay(5000);
+
+  motor1.writeMicroseconds(1000);
+  Serial.println("STOP");
+  delay(5000);
+}
