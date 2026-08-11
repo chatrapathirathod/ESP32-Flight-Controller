@@ -56,7 +56,7 @@ Custom PCB
 
 
 
----->>>>  ARCHITECTURE   <<<<---
+                                  ---->>>>  ARCHITECTURE   <<<<---
 
 
              ┌──────────────────┐
