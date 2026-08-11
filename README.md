@@ -6,12 +6,19 @@ Project Status
 
 Current status: Flying successfully 🚁
 
+
 ESP32-based flight controller
+
 Custom-designed PCB
+
 MPU6500 IMU
+
 BMP280 barometer
+
 HMC5883L magnetometer
+
 FlySky iBUS receiver
+
 PWM ESC output
 PID-based stabilization
 Custom Quad-X mixer
