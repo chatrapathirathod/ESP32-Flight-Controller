@@ -27,7 +27,7 @@ Custom Quad-X mixer
 
 Successfully tested in flight
 
-Hardware Component	Details
+                   ----->>>> HARDWARE COMPONENT DETAILS <<<<---- 
 
 MCU	ESP32
 
@@ -56,8 +56,7 @@ Custom PCB
 
 
 
-
-Architecture
+---->>>>  ARCHITECTURE   <<<<---
 
 
              ┌──────────────────┐
@@ -96,24 +95,39 @@ Architecture
 
 
            
-Current Limitations
+                                       ->>> CURRENT LIMITATIONS <<<-
 
  This makes the project look more professional, not less.
 
 For example:
 
 No production-grade filtering yet
+
 Altitude hold still under development
+
 VL53L0X not currently integrated into ESP-FC firmware
+
 GPS navigation not yet implemented
+
 Further PID tuning required
+
 Prototype PCB intended for educational/hobby use
-Future Work
+
+                                              --->>>  FUTURE WORK <<<---
+
+
  Altitude hold using BMP280
+ 
  VL53L0X rangefinder integration
+ 
  Soft landing controller
+ 
  GPS integration
+ 
  Position hold
+ 
  Improved filtering
+ 
  STM32-based second-generation FC
+ 
  Custom PCB revision 2
