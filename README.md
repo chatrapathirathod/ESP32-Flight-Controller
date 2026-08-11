@@ -33,6 +33,9 @@ Custom PCB
 
 
 
+
+
+
 Architecture
              ┌──────────────────┐
              │      ESP32       │
@@ -55,6 +58,21 @@ Architecture
            ESC 1             ESC 4
              │                 │
            Motor             Motor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
 Current Limitations
 
  This makes the project look more professional, not less.
