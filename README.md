@@ -58,6 +58,8 @@ Custom PCB
 
 
 Architecture
+
+
              ┌──────────────────┐
              │      ESP32       │
              │                  │
